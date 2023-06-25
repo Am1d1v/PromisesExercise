@@ -8,15 +8,20 @@ console.log(res);
 
 */
 
-fetch('https://dummyjsons.com/products')
+fetch('https://dummyjson.com/products')
     .then(
-        response => response.json(),
+        response => {
+            console.log(response),
+             response.json()
+        },
         error => console.log(error)
     )
     .then(({ products }) => {
    // console.log(products);
    return fetch('https://dummyjson.com/products/' + products[0].id);
-})
+},
+error => console.log(error)
+)
     .then((response) => {
        return response.json();
 })
