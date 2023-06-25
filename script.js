@@ -8,12 +8,11 @@ console.log(res);
 
 */
 
-fetch('https://dummyjson.com/products')
-    .then((response) => {
-    console.log(response);
-   return response.json();
-  // return response.text();
-})
+fetch('https://dummyjsons.com/products')
+    .then(
+        response => response.json(),
+        error => console.log(error)
+    )
     .then(({ products }) => {
    // console.log(products);
    return fetch('https://dummyjson.com/products/' + products[0].id);
